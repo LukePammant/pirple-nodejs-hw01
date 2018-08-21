@@ -4,11 +4,7 @@ const https = require('https');
 const config = require('./config');
 const requestHandler = require('./requestHandler');
 
-requestHandler.addRoute('hello', (req, callback) => {
-    if (req.method !== "post") {
-        return callback(400, { error: "Can only post here!" });
-    }
-
+requestHandler.post('hello', (req, callback) => {
     callback(200, { response: "Hello there" });
 });
 
